@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingot Defenders", "Ingot Defenders.csproj", "{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{C12F8A9E-908A-42E0-83A7-70E7247D8DAB}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

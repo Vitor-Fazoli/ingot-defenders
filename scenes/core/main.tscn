@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxbbwv5fkgq1d"]
+
+[ext_resource type="PackedScene" uid="uid://dg61i5qnpmrim" path="res://scenes/core/node_forge.tscn" id="1_vgvex"]
+
+[node name="Main" type="Node"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.708937, 0.841314, 0.912676, 1)
+
+[node name="NodeForge" parent="." instance=ExtResource("1_vgvex")]
+position = Vector2(0, 10)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
