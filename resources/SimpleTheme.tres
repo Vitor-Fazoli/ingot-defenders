@@ -1,33 +1,17 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://d0grp1q7xar6q"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d0grp1q7xar6q"]
 
-[ext_resource type="Texture2D" uid="uid://b2ngeg6xllh8p" path="res://assets/ui/simple2.png" id="1_2l2ah"]
+[ext_resource type="StyleBox" uid="uid://b30rbf7adlsh0" path="res://resources/styles/SimpleStyleBox.tres" id="1_ixkte"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbhul"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibr3b"]
-texture = ExtResource("1_2l2ah")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.450648, 0.450648, 0.450648, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kglk4"]
-texture = ExtResource("1_2l2ah")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w08ys"]
-texture = ExtResource("1_2l2ah")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yays"]
-texture = ExtResource("1_2l2ah")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
@@ -47,7 +31,11 @@ anti_aliasing = false
 Button/font_sizes/font_size = 14
 Button/styles/focus = SubResource("StyleBoxEmpty_dbhul")
 Button/styles/hover = SubResource("StyleBoxTexture_ibr3b")
-Button/styles/normal = SubResource("StyleBoxTexture_kglk4")
-Panel/styles/panel = SubResource("StyleBoxTexture_w08ys")
+Button/styles/normal = ExtResource("1_ixkte")
+Panel/styles/panel = ExtResource("1_ixkte")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 0
+ProgressBar/font_sizes/font_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxTexture_1yays")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_hfq20")

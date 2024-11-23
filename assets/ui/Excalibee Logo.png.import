@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ngeg6xllh8p"
-path="res://.godot/imported/simple2.png-640236223d7bd52de2c3a4be9b01fe42.ctex"
+uid="uid://pch7xt5gwnd5"
+path="res://.godot/imported/Excalibee Logo.png-001f10e1af3dd8b201f930632e172c49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/simple2.png"
-dest_files=["res://.godot/imported/simple2.png-640236223d7bd52de2c3a4be9b01fe42.ctex"]
+source_file="res://assets/ui/Excalibee Logo.png"
+dest_files=["res://.godot/imported/Excalibee Logo.png-001f10e1af3dd8b201f930632e172c49.ctex"]
 
 [params]
 

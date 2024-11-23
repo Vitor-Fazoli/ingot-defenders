@@ -11,18 +11,19 @@ config_version=5
 [application]
 
 config/name="Ingot Defenders"
-config/version="19.11.2024"
+config/version="23.11.2024"
 run/main_scene="res://scenes/core/node_forge.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
+boot_splash/image="res://assets/ui/Excalibee Logo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
 
 [display]
 
 window/size/viewport_width=576
 window/size/viewport_height=324
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
@@ -79,6 +80,10 @@ attack={
 2d_physics/layer_1="Tiles"
 2d_physics/layer_2="Enemy Hurtbox"
 2d_physics/layer_3="Ally Hurtbox"
+
+[physics]
+
+2d/default_gravity=1100.0
 
 [rendering]
 

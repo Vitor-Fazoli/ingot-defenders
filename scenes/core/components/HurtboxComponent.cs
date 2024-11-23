@@ -6,6 +6,8 @@ namespace IngotDefenders.scenes.core.components
     {
         [Export]
         public HealthComponent healthComponent;
+        [Export]
+        public MovementComponent movementComponent;
 
         public override void _Ready()
         {
@@ -15,9 +17,12 @@ namespace IngotDefenders.scenes.core.components
         public void OnHitboxEntered(HitboxComponent hitbox)
         {
             if (hitbox is null)
+            {
                 return;
+            }
 
             healthComponent?.Damage(hitbox.Attack);
+            movementComponent?.Knockback(hitbox.Attack);
         }
     }
 }

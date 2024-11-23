@@ -1,0 +1,199 @@
+[gd_scene load_steps=9 format=3 uid="uid://ss2w86kwu1fy"]
+
+[ext_resource type="Script" path="res://scenes/weapons/greatswords/RustedGreatsword.cs" id="1_bhrdt"]
+[ext_resource type="Texture2D" uid="uid://dwe05o52jqi8i" path="res://assets/sprites/weapons/RustedGreatsword.png" id="2_480fx"]
+[ext_resource type="PackedScene" uid="uid://bcr3xbrxtkb7q" path="res://scenes/core/components/HitboxComponent.tscn" id="3_wxx4j"]
+[ext_resource type="AudioStream" uid="uid://ptf6x3yvtxxu" path="res://assets/audios/sword-sound-260274.mp3" id="4_jm8k5"]
+
+[sub_resource type="Animation" id="Animation_wvb2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.139626]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v4xgf"]
+resource_name = "hit"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2, 0.266667, 0.3, 0.633333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-7, -15), Vector2(20, -17), Vector2(50, 0), Vector2(15, 20), Vector2(-10, 25), Vector2(-7, -15), Vector2(-7, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2, 0.3, 0.633333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.139626, -0.139626, 1.5708, 3.49066, -0.139626, -0.139626]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 0.2, 0.266667, 0.6, 0.633333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 2), Vector2(1, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0666667, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.633333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 0, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.23114),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lwjpf"]
+_data = {
+"RESET": SubResource("Animation_wvb2v"),
+"hit": SubResource("Animation_v4xgf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcpkf"]
+size = Vector2(65, 10)
+
+[node name="RustedGreatsword" type="Node2D" node_paths=PackedStringArray("AnimationPlayer", "hitbox", "Sprite")]
+script = ExtResource("1_bhrdt")
+Damage = 2.0
+knockback = 10.0
+FollowMousePos = true
+AnimationPlayer = NodePath("AnimationPlayer")
+hitbox = NodePath("HitboxComponent")
+Sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7, -15)
+rotation = -0.139626
+texture = ExtResource("2_480fx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lwjpf")
+}
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_wxx4j")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(43, -2)
+shape = SubResource("RectangleShape2D_bcpkf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jm8k5")
+pitch_scale = 1.29
+attenuation = 2.37841
+max_polyphony = 2
