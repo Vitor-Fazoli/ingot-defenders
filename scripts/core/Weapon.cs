@@ -4,7 +4,7 @@ using IngotDefenders.scripts.enums;
 
 namespace IngotDefenders.scenes.core.player
 {
-	public partial class Weapon : Node2D
+	public abstract partial class Weapon : Node2D
 	{
 		public WeaponType Type { get; set; }
 
@@ -21,16 +21,7 @@ namespace IngotDefenders.scenes.core.player
 		[Export] public HitboxComponent hitbox;
 		[Export] public Sprite2D Sprite;
 
-		public void Hit()
-		{
-			AnimationPlayer.Play("hit");
-			hitbox.Attack = new()
-			{
-				AttackDamage = Damage,
-				KnockbackForce = knockback,
-				AttackPosition = GlobalPosition
-			};
-		}
+		public abstract void Hit();
 
 		public override void _Process(double delta)
 		{
@@ -38,6 +29,11 @@ namespace IngotDefenders.scenes.core.player
 			{
 				Rotation = Position.AngleTo(GetGlobalMousePosition());
 			}
+		}
+
+		public void SetType(WeaponType wType)
+		{
+			Type = wType;
 		}
 	}
 }

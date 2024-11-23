@@ -1,8 +1,8 @@
-using IngotDefenders.scenes.core.player;
+using IngotDefenders.scripts.weapon_types;
 
 namespace IngotDefenders.scenes.weapons.greatswords
 {
-    public partial class RustedGreatsword : Weapon
+    public partial class RustedGreatsword : Greatsword
     {
 
     }

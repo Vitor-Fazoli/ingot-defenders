@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cccn3daqijf7l"]
+
+[ext_resource type="Script" path="res://scenes/core/player/Weapon.cs" id="1_ornja"]
+
+[node name="Weapon" type="Node2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_ornja")
+Type = null
+Damage = 5.0
+knockback = null
+Acceleration = null
+Power = null
+Bouncing = null
+HoldPosition = null
+HoldAngle = null
+HoldBehindPlayer = null
+FollowMousePos = null

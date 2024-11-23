@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqvwanh6deq3c"]
+[gd_scene load_steps=11 format=3 uid="uid://bqvwanh6deq3c"]
 
 [ext_resource type="Script" path="res://scenes/weapons/rifles/ColonialMusket.cs" id="1_fcxll"]
 [ext_resource type="Texture2D" uid="uid://dg8yjut1ao6wn" path="res://assets/sprites/weapons/rifles/ColonialMusket.png" id="2_mkph6"]
-[ext_resource type="PackedScene" uid="uid://bcr3xbrxtkb7q" path="res://scenes/core/components/HitboxComponent.tscn" id="3_0ec4g"]
-[ext_resource type="AudioStream" uid="uid://ptf6x3yvtxxu" path="res://assets/audios/sword-sound-260274.mp3" id="4_t4l3j"]
+[ext_resource type="AudioStream" uid="uid://rgoikcsievng" path="res://assets/audios/old-musket-bang-95873.mp3" id="4_c3mfn"]
+[ext_resource type="PackedScene" uid="uid://ct2idmi4rfiaq" path="res://scenes/projectiles/MusketBall.tscn" id="5_ojnde"]
 
 [sub_resource type="Animation" id="Animation_wvb2v"]
 length = 0.001
@@ -145,7 +145,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -186,9 +186,6 @@ _data = {
 "hit": SubResource("Animation_v4xgf")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag8ec"]
-size = Vector2(65, 10)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0k2o6"]
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -206,10 +203,12 @@ gradient = SubResource("Gradient_5ro56")
 width = 1
 height = 1
 
-[node name="ColonialMusket" type="Node2D" node_paths=PackedStringArray("AnimationPlayer", "hitbox", "Sprite")]
+[node name="ColonialMusket" type="Node2D" node_paths=PackedStringArray("FirePosition", "AnimationPlayer", "hitbox", "Sprite")]
 script = ExtResource("1_fcxll")
+Bullet = ExtResource("5_ojnde")
+FirePosition = NodePath("Marker2D")
 AnimationPlayer = NodePath("AnimationPlayer")
-hitbox = NodePath("HitboxComponent")
+hitbox = NodePath("")
 Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -220,21 +219,6 @@ texture = ExtResource("2_mkph6")
 libraries = {
 "": SubResource("AnimationLibrary_lwjpf")
 }
-
-[node name="HitboxComponent" parent="." instance=ExtResource("3_0ec4g")]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(43, -2)
-shape = SubResource("RectangleShape2D_ag8ec")
-disabled = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_t4l3j")
-pitch_scale = 1.29
-attenuation = 2.37841
-max_polyphony = 2
 
 [node name="ShootFire" type="GPUParticles2D" parent="."]
 position = Vector2(28, 3)
@@ -250,3 +234,9 @@ fixed_fps = 120
 interpolate = false
 fract_delta = false
 trail_sections = 15
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c3mfn")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(27, 4)

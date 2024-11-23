@@ -7,7 +7,18 @@ namespace IngotDefenders.scripts.weapon_types
     {
         public override void _Ready()
         {
-            Type = WeaponType.Greatsword;
+            SetType(WeaponType.Greatsword);
+        }
+
+        public override void Hit()
+        {
+            AnimationPlayer.Play("hit");
+            hitbox.Attack = new()
+            {
+                AttackDamage = Damage,
+                KnockbackForce = knockback,
+                AttackPosition = GlobalPosition
+            };
         }
     }
 }
