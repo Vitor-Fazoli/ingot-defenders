@@ -3,21 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bcr3xbrxtkb7q" path="res://scenes/core/components/HitboxComponent.tscn" id="1_7yjoq"]
 [ext_resource type="Script" path="res://scenes/projectiles/MusketBall.cs" id="1_ywen5"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c0ftt"]
-particle_flag_disable_z = true
-spread = 0.0
-initial_velocity_min = 700.0
-initial_velocity_max = 1000.0
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="Gradient" id="Gradient_nbgd4"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5bjen"]
-gradient = SubResource("Gradient_nbgd4")
-width = 2
-height = 2
-
 [sub_resource type="Gradient" id="Gradient_iy6ql"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -29,9 +14,34 @@ height = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxdnd"]
 radius = 1.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c0ftt"]
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_nbgd4"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5bjen"]
+gradient = SubResource("Gradient_nbgd4")
+width = 2
+height = 2
+
 [node name="MusketBall" type="Node2D" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("1_ywen5")
 hitbox = NodePath("HitboxComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_dkrjd")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("1_7yjoq")]
+position = Vector2(0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_hxdnd")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -44,14 +54,3 @@ fixed_fps = 60
 trail_enabled = true
 trail_lifetime = 200.0
 trail_sections = 20
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_dkrjd")
-
-[node name="HitboxComponent" parent="." instance=ExtResource("1_7yjoq")]
-position = Vector2(0, 0)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CircleShape2D_hxdnd")

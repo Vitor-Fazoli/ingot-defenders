@@ -5,7 +5,7 @@ using IngotDefenders.scripts.enums;
 
 namespace IngotDefenders.scripts.weapon_types
 {
-	public partial class Rifle : Weapon
+	public abstract partial class Rifle : Weapon
 	{
 		[ExportCategory("Rifle Stats")]
 		[Export]
@@ -20,8 +20,12 @@ namespace IngotDefenders.scripts.weapon_types
 		public override void Hit()
 		{
 			AnimationPlayer.Play("hit");
+		}
+
+		public void InstantiateBullet()
+		{
 			Node2D inst = Bullet.Instantiate<Node2D>();
-			inst.Position = FirePosition.Position;
+			inst.GlobalPosition = FirePosition.GlobalPosition;
 			GetParent().GetParent().GetParent().AddChild(inst);
 		}
 	}

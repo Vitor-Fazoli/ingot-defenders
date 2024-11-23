@@ -3,7 +3,7 @@ using IngotDefenders.scripts.enums;
 
 namespace IngotDefenders.scripts.weapon_types
 {
-    public partial class Greatsword : Weapon
+    public abstract partial class Greatsword : Weapon
     {
         public override void _Ready()
         {
