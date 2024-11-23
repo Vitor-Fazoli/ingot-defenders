@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
 using Godot;
-using GodotPlugins.Game;
 using IngotDefenders.scripts.core;
 
 public partial class MovementComponent : Node2D
@@ -37,6 +35,6 @@ public partial class MovementComponent : Node2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		SetMovement.Call();
+		//SetMovement.Call();
 	}
 }

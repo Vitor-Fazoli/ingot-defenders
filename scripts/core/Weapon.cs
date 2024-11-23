@@ -6,15 +6,11 @@ namespace IngotDefenders.scenes.core.player
 {
 	public partial class Weapon : Node2D
 	{
+		public WeaponType Type { get; set; }
+
 		[ExportCategory("Stats")]
-		[Export] public WeaponType Type;
 		[Export] public float Damage;
 		[Export] public float knockback;
-
-		[ExportCategory("Improvements")]
-		[Export] public float Acceleration;
-		[Export] public float Power;
-		[Export] public float Bouncing;
 
 		[ExportCategory("GameAttributes")]
 		[Export] public Vector2 HoldPosition;
