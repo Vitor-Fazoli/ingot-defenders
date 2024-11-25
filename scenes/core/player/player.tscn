@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6yclv06kngq" path="res://assets/sprites/player/player.png" id="2_t5k60"]
 [ext_resource type="PackedScene" uid="uid://dtlwxugiaq115" path="res://scenes/core/components/HealthComponent.tscn" id="3_mvj8j"]
 [ext_resource type="PackedScene" uid="uid://cwrsr6lne27yl" path="res://scenes/core/components/HurtboxComponent.tscn" id="4_lbuh8"]
-[ext_resource type="PackedScene" uid="uid://bqvwanh6deq3c" path="res://scenes/weapons/rifles/ColonialMusket.tscn" id="5_uvdnq"]
+[ext_resource type="PackedScene" uid="uid://bqvwanh6deq3c" path="res://scenes/weapons/rifles/ColonialMusket.tscn" id="5_b0siv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkxd1"]
 size = Vector2(8, 16)
@@ -318,4 +318,4 @@ libraries = {
 "": SubResource("AnimationLibrary_13cis")
 }
 
-[node name="ColonialMusket" parent="." instance=ExtResource("5_uvdnq")]
+[node name="ColonialMusket" parent="." instance=ExtResource("5_b0siv")]

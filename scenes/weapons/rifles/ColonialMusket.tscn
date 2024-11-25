@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqvwanh6deq3c"]
+[gd_scene load_steps=8 format=3 uid="uid://bqvwanh6deq3c"]
 
 [ext_resource type="Script" path="res://scenes/weapons/rifles/ColonialMusket.cs" id="1_fcxll"]
 [ext_resource type="Texture2D" uid="uid://dg8yjut1ao6wn" path="res://assets/sprites/weapons/rifles/ColonialMusket.png" id="2_mkph6"]
@@ -11,7 +11,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 3
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -67,30 +67,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ShootFire:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ShootFire:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(28, 3)]
-}
 
 [sub_resource type="Animation" id="Animation_v4xgf"]
 resource_name = "hit"
@@ -111,7 +87,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 4
+tracks/1/interp = 3
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 1.06667),
@@ -155,37 +131,13 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ShootFire:emitting")
+tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.266667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ShootFire:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.266667),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(33, 3)]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0.266667),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -200,27 +152,11 @@ _data = {
 "hit": SubResource("Animation_v4xgf")
 }
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0k2o6"]
-lifetime_randomness = 0.5
-particle_flag_disable_z = true
-direction = Vector3(5, 0, 0)
-spread = 10.0
-initial_velocity_max = 500.0
-gravity = Vector3(0, 0, 0)
-scale_max = 2.0
-
-[sub_resource type="Gradient" id="Gradient_5ro56"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0opmr"]
-gradient = SubResource("Gradient_5ro56")
-width = 1
-height = 1
-
-[node name="ColonialMusket" type="Node2D" node_paths=PackedStringArray("FirePosition", "AnimationPlayer", "Sprite")]
+[node name="ColonialMusket" type="Node2D" node_paths=PackedStringArray("SpeedRaycast", "AnimationPlayer", "Sprite")]
 script = ExtResource("1_fcxll")
 Bullet = ExtResource("5_ojnde")
-FirePosition = NodePath("Marker2D")
+SpeedRaycast = NodePath("Raycast2D")
+Damage = 10.0
 AnimationPlayer = NodePath("AnimationPlayer")
 Sprite = NodePath("Sprite2D")
 
@@ -233,23 +169,12 @@ libraries = {
 "": SubResource("AnimationLibrary_lwjpf")
 }
 
-[node name="ShootFire" type="GPUParticles2D" parent="."]
-position = Vector2(28, 3)
-emitting = false
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_0k2o6")
-texture = SubResource("GradientTexture2D_0opmr")
-lifetime = 0.3
-one_shot = true
-explosiveness = 1.0
-randomness = 0.18
-fixed_fps = 120
-interpolate = false
-fract_delta = false
-trail_sections = 15
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_c3mfn")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Raycast2D" type="RayCast2D" parent="."]
 position = Vector2(27, 4)
+exclude_parent = false
+target_position = Vector2(300, 0)
+collision_mask = 0
+collide_with_bodies = false

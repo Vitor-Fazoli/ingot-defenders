@@ -15,7 +15,7 @@ config/version="23.11.2024"
 run/main_scene="res://scenes/core/node_forge.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://assets/ui/Excalibee Logo.png"
+boot_splash/image="res://assets/ui/excalibee_logo.png"
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1000
@@ -24,7 +24,7 @@ boot_splash/minimum_display_time=1000
 
 window/size/viewport_width=576
 window/size/viewport_height=324
-window/size/resizable=false
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
@@ -38,6 +38,7 @@ project/assembly_name="Ingot Defenders"
 
 folder_colors={
 "res://assets/": "purple",
+"res://enums/": "pink",
 "res://resources/": "gray",
 "res://scenes/": "red",
 "res://scripts/": "blue"

@@ -23,6 +23,11 @@ namespace IngotDefenders.scenes.core.components
 
             healthComponent?.Damage(hitbox.Attack);
             movementComponent?.Knockback(hitbox.Attack);
+
+            if (hitbox.IsProjectile)
+            {
+                hitbox.GetParent().QueueFree();
+            }
         }
     }
 }
