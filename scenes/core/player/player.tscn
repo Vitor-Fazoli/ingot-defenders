@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6yclv06kngq" path="res://assets/sprites/player/player.png" id="2_t5k60"]
 [ext_resource type="PackedScene" uid="uid://dtlwxugiaq115" path="res://scenes/core/components/HealthComponent.tscn" id="3_mvj8j"]
 [ext_resource type="PackedScene" uid="uid://cwrsr6lne27yl" path="res://scenes/core/components/HurtboxComponent.tscn" id="4_lbuh8"]
-[ext_resource type="PackedScene" uid="uid://bqvwanh6deq3c" path="res://scenes/weapons/rifles/ColonialMusket.tscn" id="5_b0siv"]
+[ext_resource type="PackedScene" uid="uid://kfb341p1nkvq" path="res://scenes/weapons/Judicators/ SpiritAndFaith.tscn" id="5_534bb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkxd1"]
 size = Vector2(8, 16)
@@ -293,7 +293,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapon")]
 script = ExtResource("1_h0krm")
-weapon = NodePath("ColonialMusket")
+weapon = NodePath("SpiritAndFaith")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -318,4 +318,4 @@ libraries = {
 "": SubResource("AnimationLibrary_13cis")
 }
 
-[node name="ColonialMusket" parent="." instance=ExtResource("5_b0siv")]
+[node name="SpiritAndFaith" parent="." instance=ExtResource("5_534bb")]
