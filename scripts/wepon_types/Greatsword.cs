@@ -16,7 +16,6 @@ namespace IngotDefenders.scripts.weapon_types
             hitbox.Attack = new()
             {
                 AttackDamage = Damage,
-                KnockbackForce = knockback,
                 AttackPosition = GlobalPosition
             };
         }

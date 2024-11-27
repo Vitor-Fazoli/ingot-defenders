@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7v2ow2fophjf"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/HolyFire.cs" id="1_murui"]
+[ext_resource type="Texture2D" uid="uid://dlyecexhymt2p" path="res://assets/sprites/particles/particle_01.png" id="2_gdqyn"]
+[ext_resource type="PackedScene" uid="uid://bcr3xbrxtkb7q" path="res://scenes/core/components/HitboxComponent.tscn" id="3_21si1"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8e0i0"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -5, 0)
+spread = 10.0
+initial_velocity_min = 1.5
+initial_velocity_max = 10.0
+angular_velocity_min = 91.43
+angular_velocity_max = 91.43
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.8
+scale_over_velocity_min = 282.35
+scale_over_velocity_max = 282.35
+
+[sub_resource type="Animation" id="Animation_t373u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jug0h"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m12c4"]
+_data = {
+"RESET": SubResource("Animation_t373u"),
+"idle": SubResource("Animation_jug0h")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qm0hh"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57d42"]
+radius = 5.0
+
+[node name="HolyFire" type="Area2D" node_paths=PackedStringArray("hitbox")]
+script = ExtResource("1_murui")
+hitbox = NodePath("HitboxComponent")
+Duration = 1.0
+Speed = 2.0
+Damage = 5.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_8e0i0")
+texture = ExtResource("2_gdqyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gdqyn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m12c4")
+}
+autoplay = "idle"
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_21si1")]
+position = Vector2(0, 0)
+collision_layer = 2
+collision_mask = 2
+IsProjectile = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_qm0hh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_57d42")

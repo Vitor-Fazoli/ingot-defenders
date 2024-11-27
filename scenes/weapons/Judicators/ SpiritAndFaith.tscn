@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://kfb341p1nkvq"]
+[gd_scene load_steps=11 format=3 uid="uid://kfb341p1nkvq"]
 
 [ext_resource type="Script" path="res://scenes/weapons/Judicators/SpiritAndFaith.cs" id="1_xj45o"]
 [ext_resource type="PackedScene" uid="uid://ct2idmi4rfiaq" path="res://scenes/projectiles/MusketBall.tscn" id="2_7x4oj"]
 [ext_resource type="Texture2D" uid="uid://doi2s67jgj0mt" path="res://assets/sprites/weapons/judicators/Spirit.png" id="2_kv0oa"]
-[ext_resource type="PackedScene" uid="uid://bcr3xbrxtkb7q" path="res://scenes/core/components/HitboxComponent.tscn" id="2_rjx60"]
+[ext_resource type="PackedScene" uid="uid://c7v2ow2fophjf" path="res://scenes/projectiles/HolyFire.tscn" id="3_o1cl3"]
 [ext_resource type="Texture2D" uid="uid://dxdmmlukk8frn" path="res://assets/sprites/weapons/judicators/Faith.png" id="3_xignt"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4tnl4"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_she2l"]
 lifetime_randomness = 0.26
@@ -31,145 +29,6 @@ scale_max = 0.3
 turbulence_noise_strength = 5.0
 turbulence_noise_scale = 10.0
 turbulence_noise_speed = Vector3(0, -10, 0)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8wtk"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 10.0
-angle_min = 1.07288e-05
-angle_max = 110.1
-spread = 0.0
-flatness = 0.2
-angular_velocity_min = -1.60933e-05
-angular_velocity_max = 114.29
-radial_velocity_min = -2.23517e-05
-radial_velocity_max = 11.76
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -20.0
-linear_accel_max = -10.0
-
-[sub_resource type="Animation" id="Animation_c8rmd"]
-resource_name = "hit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Faith:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.633333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-2, 5), Vector2(-9, 6), Vector2(-15, 2), Vector2(-20, 0), Vector2(22, 0), Vector2(22, 0), Vector2(-2, 5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Faith:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.633333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.364774, 1.45735, 1.5708, 1.5708, 1.5708, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Faith:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.433333, 0.566667, 0.633333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 2), Vector2(3, 0.5), Vector2(3, 0.5), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HolyAura:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.533333, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BookEffect:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("HolyAura:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.533333, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(27, 0), Vector2(27, 0), Vector2(157, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.533333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("HitboxComponent/CollisionShape2D:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.533333, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(27, 0), Vector2(27, 0), Vector2(157, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Spirit:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.833333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(8, 3), Vector2(7, 10), Vector2(7, 10), Vector2(8, 3)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Spirit:rotation")
-tracks/9/interp = 3
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.833333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.5708, 1.5708, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_rebeg"]
 length = 0.001
@@ -212,7 +71,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HolyAura:emitting")
+tracks/3/path = NodePath("BookEffect:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -224,98 +83,139 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HolyAura:position")
+tracks/4/path = NodePath("Spirit:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(27, 0)]
+"values": [Vector2(8, 3)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BookEffect:emitting")
-tracks/5/interp = 1
+tracks/5/path = NodePath("Spirit:rotation")
+tracks/5/interp = 3
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/6/path = NodePath("Spirit:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("HitboxComponent/CollisionShape2D:position")
+tracks/7/path = NodePath("Spirit:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(27, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Spirit:position")
-tracks/8/interp = 2
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, 3)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Spirit:rotation")
-tracks/9/interp = 3
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [0.0]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Spirit:scale")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_c8rmd"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Faith:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-2, 5), Vector2(-9, 6), Vector2(-10, 2), Vector2(-20, 0), Vector2(22, 0), Vector2(22, 0), Vector2(-2, 5)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Spirit:skew")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Faith:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 0.364774, 1.45735, 1.5708, 1.5708, 1.5708, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Faith:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.566667, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 2), Vector2(3, 0.5), Vector2(3, 0.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BookEffect:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Spirit:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 3), Vector2(7, 10), Vector2(7, 10), Vector2(8, 3)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Spirit:rotation")
+tracks/5/interp = 3
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 1.5708, 0.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"InstantiateSpell"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_rx2qe"]
@@ -403,14 +303,14 @@ _data = {
 "hit_2": SubResource("Animation_rx2qe")
 }
 
-[node name="SpiritAndFaith" type="Node2D" node_paths=PackedStringArray("SpeedRaycast", "AnimationPlayer", "hitbox")]
+[node name="SpiritAndFaith" type="Node2D" node_paths=PackedStringArray("SpeedRaycast", "AnimationPlayer")]
 script = ExtResource("1_xj45o")
 Bullet = ExtResource("2_7x4oj")
+Spell = ExtResource("3_o1cl3")
 SpeedRaycast = NodePath("RayCast2D")
 Damage = 3.0
 knockback = 1.0
 AnimationPlayer = NodePath("AnimationPlayer")
-hitbox = NodePath("HitboxComponent")
 
 [node name="Spirit" type="Sprite2D" parent="."]
 z_index = -1
@@ -422,15 +322,6 @@ texture = ExtResource("2_kv0oa")
 position = Vector2(-2, 5)
 texture = ExtResource("3_xignt")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("2_rjx60")]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(27, 0)
-shape = SubResource("CircleShape2D_4tnl4")
-disabled = true
-
 [node name="BookEffect" type="GPUParticles2D" parent="."]
 position = Vector2(-2, 2)
 emitting = false
@@ -439,16 +330,6 @@ process_material = SubResource("ParticleProcessMaterial_she2l")
 trail_lifetime = 0.01
 trail_section_subdivisions = 16
 
-[node name="HolyAura" type="GPUParticles2D" parent="."]
-position = Vector2(27, 0)
-emitting = false
-amount = 300
-process_material = SubResource("ParticleProcessMaterial_d8wtk")
-one_shot = true
-speed_scale = 2.0
-randomness = 0.3
-fixed_fps = 60
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4orsv")
@@ -456,4 +337,4 @@ libraries = {
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(14, 2)
-target_position = Vector2(500, 0)
+target_position = Vector2(300, 0)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cij22whkkfd4i"]
+
+[ext_resource type="PackedScene" uid="uid://bn0brlyemdwgs" path="res://scenes/core/enemies/enemy_base.tscn" id="1_2gw5u"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_cmo6g"]
+script/source = "using Godot;
+
+public partial class Enemy : PathFollow2D
+{
+	[Export] float Speed = 50;
+
+	public override void _Process(double delta)
+	{
+		Progress += Speed * (float)delta;
+	}
+}
+"
+
+[node name="Enemy" type="PathFollow2D"]
+rotation = 3.14159
+script = SubResource("CSharpScript_cmo6g")
+Speed = null
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_2gw5u")]
+rotation = 3.14159

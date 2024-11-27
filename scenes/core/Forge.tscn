@@ -1,0 +1,214 @@
+[gd_scene load_steps=22 format=4 uid="uid://dg61i5qnpmrim"]
+
+[ext_resource type="TileSet" uid="uid://cp2mctuo5lxu8" path="res://resources/tilemaps/SimpleTilemap.tres" id="1_j472y"]
+[ext_resource type="PackedScene" uid="uid://dv3ei1h1gdpko" path="res://scenes/core/player/player.tscn" id="2_67oa3"]
+[ext_resource type="PackedScene" uid="uid://bn0brlyemdwgs" path="res://scenes/core/enemies/enemy_base.tscn" id="2_eo3y1"]
+[ext_resource type="Script" path="res://scenes/core/SpawnEnemies.cs" id="2_qavtv"]
+[ext_resource type="PackedScene" uid="uid://dtlwxugiaq115" path="res://scenes/core/components/HealthComponent.tscn" id="4_tn0bv"]
+[ext_resource type="PackedScene" uid="uid://cwrsr6lne27yl" path="res://scenes/core/components/HurtboxComponent.tscn" id="5_bs8w1"]
+[ext_resource type="Texture2D" uid="uid://ch7cd5mp3a8q2" path="res://assets/sprites/npcs/miner.png" id="6_nxdjk"]
+
+[sub_resource type="Curve2D" id="Curve2D_5tpa4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 206, 68, 0, 0, 0, 0, -398, 68, 0, 0, 0, 0, -398, 119, 0, 0, 0, 0, 92, 119, 0, 0, 0, 0, 92, 166, 0, 0, 0, 0, -343, 166)
+}
+point_count = 6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ich"]
+atlas = ExtResource("6_nxdjk")
+region = Rect2(0, 0, 29, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wde43"]
+atlas = ExtResource("6_nxdjk")
+region = Rect2(29, 0, 29, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mtn7"]
+atlas = ExtResource("6_nxdjk")
+region = Rect2(58, 0, 29, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc741"]
+atlas = ExtResource("6_nxdjk")
+region = Rect2(87, 0, 29, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li4xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ich")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wde43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mtn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc741")
+}],
+"loop": true,
+"name": &"unique",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_rngy7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_li4xn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_shu8t"]
+resource_name = "unique"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_li4xn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trm8r"]
+_data = {
+"RESET": SubResource("Animation_rngy7"),
+"unique": SubResource("Animation_shu8t")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqhxu"]
+size = Vector2(30, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fgka"]
+size = Vector2(30, 17)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ovog"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lyygh"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihcyk"]
+bg_color = Color(1, 1, 1, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[node name="Forge" type="Node2D"]
+position = Vector2(2, 146)
+
+[node name="TileMap" type="TileMapLayer" parent="."]
+physics_interpolation_mode = 2
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("1_j472y")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(446.411, -46)
+scale = Vector2(0.983444, 1)
+curve = SubResource("Curve2D_5tpa4")
+script = ExtResource("2_qavtv")
+enemy = ExtResource("2_eo3y1")
+
+[node name="Timer" type="Timer" parent="Path2D"]
+wait_time = 3.0
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_67oa3")]
+position = Vector2(71, 12)
+
+[node name="Miner" type="StaticBody2D" parent="."]
+position = Vector2(110, 120)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Miner"]
+sprite_frames = SubResource("SpriteFrames_li4xn")
+autoplay = "unique"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Miner"]
+libraries = {
+"": SubResource("AnimationLibrary_trm8r")
+}
+
+[node name="HealthComponent" parent="Miner" node_paths=PackedStringArray("progressBar") instance=ExtResource("4_tn0bv")]
+HealthPointsMax = 1000.0
+progressBar = NodePath("../HealthPanel/ProgressBar")
+
+[node name="HurtboxComponent" parent="Miner" node_paths=PackedStringArray("healthComponent") instance=ExtResource("5_bs8w1")]
+collision_layer = 4
+collision_mask = 0
+healthComponent = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Miner/HurtboxComponent"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_aqhxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Miner"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8fgka")
+
+[node name="HealthPanel" type="Panel" parent="Miner"]
+layout_direction = 2
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 5.0
+offset_bottom = -9.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ovog")
+
+[node name="ProgressBar" type="ProgressBar" parent="Miner/HealthPanel"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 8.0
+offset_bottom = 3.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_lyygh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ihcyk")
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="Path2D/Timer" to="Path2D" method="EnemySpawn"]

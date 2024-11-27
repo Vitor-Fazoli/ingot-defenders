@@ -10,7 +10,6 @@ namespace IngotDefenders.scripts.core
         [Export] public float Duration { get; set; } = 3;
         [Export] public float Speed { get; set; }
         [Export] public float Damage { get; set; } = 10;
-        [Export] public float Knockback { get; set; } = 0;
         public float Direction { get; set; }
 
         public virtual void Process(double delta) { }
@@ -23,7 +22,6 @@ namespace IngotDefenders.scripts.core
             hitbox.Attack = new()
             {
                 AttackDamage = Damage,
-                KnockbackForce = Knockback,
                 AttackPosition = GlobalPosition
             };
         }

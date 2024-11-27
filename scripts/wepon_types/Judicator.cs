@@ -11,6 +11,8 @@ namespace IngotDefenders.scripts.weapon_types
         [Export]
         public PackedScene Bullet;
         [Export]
+        public PackedScene Spell;
+        [Export]
         public RayCast2D SpeedRaycast;
         private bool _fireTurn = false;
         public override void _Ready()
@@ -31,12 +33,6 @@ namespace IngotDefenders.scripts.weapon_types
                 {
                     _fireTurn = true;
                     AnimationPlayer.Play("hit");
-                    hitbox.Attack = new()
-                    {
-                        AttackDamage = Damage,
-                        KnockbackForce = knockback,
-                        AttackPosition = GlobalPosition
-                    };
                 }
             }
         }
@@ -47,7 +43,21 @@ namespace IngotDefenders.scripts.weapon_types
 
             proj.GlobalPosition = SpeedRaycast.GlobalPosition;
             proj.Damage = Damage;
-            proj.Knockback = knockback;
+
+            Vector2 mousePos = GetGlobalMousePosition();
+
+            proj.Direction = mousePos.X - GlobalPosition.X > 0 ? 1 : -1;
+            proj.Speed = SpeedRaycast.TargetPosition.X;
+
+            GetTree().CurrentScene.AddChild(proj);
+        }
+
+        public void InstantiateSpell()
+        {
+            Projectile proj = Spell.Instantiate<Projectile>();
+
+            proj.GlobalPosition = SpeedRaycast.GlobalPosition;
+            proj.Damage = Damage;
 
             Vector2 mousePos = GetGlobalMousePosition();
 

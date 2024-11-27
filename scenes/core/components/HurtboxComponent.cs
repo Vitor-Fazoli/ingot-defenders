@@ -6,8 +6,6 @@ namespace IngotDefenders.scenes.core.components
     {
         [Export]
         public HealthComponent healthComponent;
-        [Export]
-        public MovementComponent movementComponent;
 
         public override void _Ready()
         {
@@ -22,7 +20,6 @@ namespace IngotDefenders.scenes.core.components
             }
 
             healthComponent?.Damage(hitbox.Attack);
-            movementComponent?.Knockback(hitbox.Attack);
 
             if (hitbox.IsProjectile)
             {

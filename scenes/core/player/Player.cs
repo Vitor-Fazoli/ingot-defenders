@@ -37,9 +37,9 @@ namespace IngotDefenders.scripts.core.player
 				weapon.Hit();
 			}
 		}
-		private float Speed { get; set; } = 45.0f;
+		private float Speed { get; set; } = 100.0f;
 
-		private const float JumpVelocity = -150.0f;
+		private const float JumpVelocity = -340.0f;
 
 		public override void _PhysicsProcess(double delta)
 		{

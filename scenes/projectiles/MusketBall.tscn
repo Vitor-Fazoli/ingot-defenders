@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct2idmi4rfiaq"]
+[gd_scene load_steps=7 format=3 uid="uid://ct2idmi4rfiaq"]
 
 [ext_resource type="PackedScene" uid="uid://bcr3xbrxtkb7q" path="res://scenes/core/components/HitboxComponent.tscn" id="1_7yjoq"]
 [ext_resource type="Script" path="res://scenes/projectiles/MusketBall.cs" id="1_ywen5"]
@@ -14,7 +14,10 @@ height = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxdnd"]
 radius = 1.0
 
-[node name="MusketBall" type="Node2D" node_paths=PackedStringArray("hitbox")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xato"]
+size = Vector2(2, 2)
+
+[node name="MusketBall" type="Area2D" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("1_ywen5")
 hitbox = NodePath("HitboxComponent")
 Duration = 2.0
@@ -33,3 +36,8 @@ IsProjectile = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_hxdnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1xato")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
